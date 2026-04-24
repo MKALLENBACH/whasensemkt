@@ -1295,34 +1295,75 @@ h3{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
 </section>
 
 <!-- POS: SLIDE 6: ARQUITETURA DA MENSAGEM -->
-<section class="slide">
+<section class="slide" style="align-items:flex-start; padding-top:60px; overflow-y:auto">
   <span class="slide-num">06 / X</span>
-  <div class="reveal">
-    <span class="badge bl">Framework</span>
-    <h2 style="margin-top:16px">Arquitetura oficial da mensagem</h2>
-    <p style="font-size:14px;color:var(--text3);margin-bottom:16px">A forma como o cérebro do cliente absorve o WhaSense.</p>
+  <div class="reveal" style="max-width:900px; width:100%; margin:0 auto; padding-bottom:60px">
+    <span class="badge bl">Framework Visual</span>
+    <h2 style="margin-top:16px;font-size:clamp(28px, 4vw, 36px)">Arquitetura oficial da mensagem</h2>
+    <p style="font-size:16px;color:var(--text2);margin-bottom:8px">Como explicar o WhaSense em diferentes níveis de profundidade.</p>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:40px;font-style:italic">“A comunicação do WhaSense deve evoluir da mensagem mais curta e impactante até a explicação mais completa do produto.”</p>
     
-    <div class="pyramid stagger">
-      <div class="pyramid-layer l1">
-        <span style="opacity:0.7;font-size:12px;margin-right:12px;text-transform:uppercase">Camada 1 — Impacto</span>
-        “Seu WhatsApp virando máquina de vendas.”
+    <div class="stagger" style="display:flex; flex-direction:column; gap:8px; align-items:center; width:100%">
+      
+      <!-- CAMADA 1 -->
+      <div style="width:clamp(280px, 50%, 100%); background:linear-gradient(135deg,rgba(37,99,235,.15),rgba(37,99,235,.05)); border:1px solid rgba(37,99,235,.4); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 32px rgba(37,99,235,.15); transition:transform .3s">
+        <div style="font-size:11px; color:var(--blue); font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px">Camada 1 — Impacto</div>
+        <p style="font-size:20px; color:#fff; font-weight:600; margin:0 0 12px 0; line-height:1.4">“Seu WhatsApp virando máquina de vendas.”</p>
+        <div style="display:inline-block; padding:6px 12px; background:rgba(37,99,235,.15); border-radius:6px">
+          <p style="font-size:12px; color:var(--text2); margin:0">Mensagem curta de impacto para chamar atenção e fixar a proposta de valor.</p>
+        </div>
       </div>
-      <div class="pyramid-layer l2">
-        <span style="opacity:0.7;font-size:11px;margin-right:12px;text-transform:uppercase">Camada 2 — Posicionamento</span>
-        “Operação de vendas organizada, inteligente e escalável.”
+
+      <div style="width:2px; height:20px; background:linear-gradient(to bottom, rgba(37,99,235,.5), rgba(16,185,129,.5))"></div>
+
+      <!-- CAMADA 2 -->
+      <div style="width:clamp(280px, 65%, 100%); background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05)); border:1px solid rgba(16,185,129,.4); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 32px rgba(16,185,129,.05); transition:transform .3s">
+        <div style="font-size:11px; color:var(--green); font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px">Camada 2 — Posicionamento</div>
+        <p style="font-size:18px; color:#fff; font-weight:500; margin:0 0 12px 0; line-height:1.5">“Transformamos o WhatsApp da sua empresa em uma operação de vendas organizada, inteligente e escalável.”</p>
+        <div style="display:inline-block; padding:6px 12px; background:rgba(16,185,129,.15); border-radius:6px">
+          <p style="font-size:12px; color:var(--text2); margin:0">Frase principal da marca, usada para posicionar o WhaSense de forma estratégica.</p>
+        </div>
       </div>
-      <div class="pyramid-layer l3">
-        <span style="opacity:0.7;font-size:11px;margin-right:12px;text-transform:uppercase">Camada 3</span>
-        Explicação curta (Pitch de elevador)
+
+      <div style="width:2px; height:20px; background:linear-gradient(to bottom, rgba(16,185,129,.5), rgba(139,92,246,.5))"></div>
+
+      <!-- CAMADA 3 -->
+      <div style="width:clamp(280px, 75%, 100%); background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(139,92,246,.05)); border:1px solid rgba(139,92,246,.4); border-radius:16px; padding:24px; text-align:center; transition:transform .3s">
+        <div style="font-size:11px; color:var(--purple); font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px">Camada 3 — Explicação Curta</div>
+        <p style="font-size:16px; color:#fff; font-weight:400; margin:0 0 12px 0; line-height:1.5">“O WhaSense é uma plataforma que transforma o WhatsApp da empresa em uma operação de vendas mais organizada, inteligente e escalável.”</p>
+        <div style="display:inline-block; padding:6px 12px; background:rgba(139,92,246,.15); border-radius:6px">
+          <p style="font-size:12px; color:var(--text2); margin:0">Pitch curto para introdução rápida e explicação objetiva.</p>
+        </div>
       </div>
-      <div class="pyramid-layer l4">
-        <span style="opacity:0.7;font-size:10px;margin-right:12px;text-transform:uppercase">Camada 4</span>
-        Explicação média (Dor + Solução)
+
+      <div style="width:2px; height:20px; background:linear-gradient(to bottom, rgba(139,92,246,.5), var(--border))"></div>
+
+      <!-- CAMADA 4 -->
+      <div style="width:clamp(280px, 85%, 100%); background:var(--bg3); border:1px solid var(--border); border-radius:16px; padding:24px; text-align:center; transition:transform .3s">
+        <div style="font-size:11px; color:var(--text); font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px">Camada 4 — Explicação Média</div>
+        <p style="font-size:15px; color:var(--text); margin:0 0 12px 0; line-height:1.6">“O WhaSense foi criado para empresas que querem parar de atender no improviso pelo WhatsApp. Ele reúne atendimento, CRM, IA, automações e gestão comercial em um só lugar, ajudando a vender com mais processo, controle e escala.”</p>
+        <div style="display:inline-block; padding:6px 12px; background:var(--bg2); border-radius:6px; border:1px solid var(--border)">
+          <p style="font-size:12px; color:var(--text2); margin:0">Versão ideal para apresentar dor + solução de forma clara e comercial.</p>
+        </div>
       </div>
-      <div class="pyramid-layer l5">
-        <span style="opacity:0.7;font-size:10px;margin-right:12px;text-transform:uppercase">Camada 5</span>
-        Explicação completa (Estrutura total)
+
+      <div style="width:2px; height:20px; background:var(--border)"></div>
+
+      <!-- CAMADA 5 -->
+      <div style="width:100%; background:var(--bg2); border:1px solid var(--border); border-radius:16px; padding:24px; text-align:center; transition:transform .3s">
+        <div style="font-size:11px; color:var(--text2); font-weight:800; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px">Camada 5 — Explicação Completa</div>
+        <p style="font-size:14px; color:var(--text2); margin:0 0 12px 0; line-height:1.6">“O WhaSense foi criado para empresas que já vendem pelo WhatsApp, mas sofrem com desorganização, demora no atendimento, leads perdidos e falta de processo comercial. A plataforma reúne atendimento, CRM, IA, automações, controle da equipe e visão da operação em um só lugar, ajudando a empresa a responder melhor, acompanhar negociações e escalar vendas com mais eficiência.”</p>
+        <div style="display:inline-block; padding:6px 12px; background:rgba(0,0,0,.2); border-radius:6px; border:1px solid var(--border)">
+          <p style="font-size:12px; color:var(--text3); margin:0">Versão mais completa para contexto institucional, apresentações e conversas profundas.</p>
+        </div>
       </div>
+
+    </div>
+    
+    <div style="text-align:center; margin-top:40px" class="stagger">
+      <p style="font-size:14px; color:var(--text2); font-style:italic; background:linear-gradient(to right, transparent, rgba(255,255,255,.02), transparent); padding:16px; display:inline-block; border-radius:100px; margin:0">
+        “Da mensagem mais rápida para impacto até a explicação mais completa para venda e contexto.”
+      </p>
     </div>
   </div>
 </section>
