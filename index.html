@@ -108,6 +108,19 @@ h3{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
 .segment-tag::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green)}
 .list-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text2);display:flex;align-items:center;gap:10px}
 .list-item::before { content: ""; display: none; }
+.top-nav{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);z-index:1000;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 60px;transition:all .3s ease}
+.tabs{display:flex;gap:8px;background:rgba(255,255,255,.03);padding:6px;border-radius:12px;border:1px solid var(--border)}
+.tab{background:transparent;border:none;color:var(--text2);padding:8px 20px;font-size:13px;font-weight:600;border-radius:8px;cursor:pointer;transition:all .3s;letter-spacing:.5px}
+.tab.active{background:var(--blue);color:#fff;box-shadow:0 0 15px rgba(37,99,235,.3);border:1px solid rgba(37,99,235,.5)}
+.tab:hover:not(.active){color:var(--text);background:rgba(255,255,255,.05)}
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:32px;width:100%}
+.pyramid-layer{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px 24px;border-radius:12px;border:1px solid var(--border);font-weight:600;transition:all .3s}
+.pyramid-layer:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.l1{width:100%;background:linear-gradient(135deg,rgba(37,99,235,.2),rgba(37,99,235,.05));border-color:rgba(37,99,235,.4);color:#fff;font-size:22px;padding:24px}
+.l2{width:90%;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));border-color:rgba(16,185,129,.3);color:var(--green);font-size:18px}
+.l3{width:80%;background:var(--bg3);color:var(--text);font-size:15px}
+.l4{width:70%;background:var(--bg2);color:var(--text2);font-size:14px}
+.l5{width:60%;background:var(--bg2);color:var(--text3);font-size:13px}
 @media(max-width:900px){
 .slide{padding:40px 24px}
 .grid2,.grid3,.grid4,.grid5,.kpi-grid,.summary-grid{grid-template-columns:1fr}
@@ -115,11 +128,24 @@ h3{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
 .phase-label{min-width:auto}
 .nav-dots{display:none}
 .slide-num{top:20px;right:24px}
+.top-nav{padding:0 20px;justify-content:center}
+.top-nav .logo{display:none}
 }
 </style>
 </head>
 <body>
+<nav class="top-nav">
+  <div class="logo">Wha<span>Sense</span></div>
+  <div class="tabs">
+    <button class="tab active" data-tab="marketing" onclick="switchTab('marketing')">Plano de Marketing</button>
+    <button class="tab" data-tab="posicionamento" onclick="switchTab('posicionamento')">Posicionamento Oficial</button>
+  </div>
+  <div style="width: 100px; display: none;"></div>
+</nav>
+
 <nav class="nav-dots" id="navDots"></nav>
+
+<div id="marketing-deck" class="deck active">
 
 <!-- SLIDE 1 — HERO -->
 <section class="slide" id="s1">
@@ -1083,21 +1109,444 @@ h3{font-size:20px;font-weight:600;color:#fff;margin-bottom:8px}
 </div>
 </div>
 </section>
+</div>
+
+<div id="posicionamento-deck" class="deck" style="display: none;">
+
+<!-- POS: SLIDE 1: HERO -->
+<section class="slide">
+  <span class="slide-num">01 / X</span>
+  <div class="reveal">
+    <span class="badge bl">Posicionamento Oficial</span>
+    <h1 style="margin-top:16px;font-size:clamp(40px,5vw,72px)">Posicionamento Oficial<br>WhaSense</h1>
+    <p class="sub">Base estratégica de marca, mensagem e explicação oficial do produto.</p>
+    
+    <div style="margin-top:40px;padding:32px;background:linear-gradient(135deg,rgba(37,99,235,.1),rgba(16,185,129,.05));border:1px solid rgba(37,99,235,.3);border-radius:16px;max-width:900px" class="stagger">
+      <div style="font-size:12px;color:var(--blue);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px">FRASE DE IMPACTO</div>
+      <h2 style="font-size:clamp(28px,3vw,42px);margin:0;color:#fff">“Seu WhatsApp virando máquina de vendas.”</h2>
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 2: TESE CENTRAL -->
+<section class="slide">
+  <span class="slide-num">02 / X</span>
+  <div class="reveal">
+    <span class="badge gr">Tese Central</span>
+    <h2 style="margin-top:16px">A tese central do WhaSense</h2>
+    <p class="quote" style="margin-bottom:32px;font-size:24px">“Transformamos o WhatsApp da sua empresa em uma operação de vendas organizada, inteligente e escalável.”</p>
+    
+    <div class="grid3 stagger">
+      <div class="card" style="border-top:3px solid var(--blue)">
+        <div style="font-size:32px;margin-bottom:16px">📋</div>
+        <h3>Organizada</h3>
+        <p>Mais controle, processo e acompanhamento. Sair do caos para uma linha de produção de vendas.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--green)">
+        <div style="font-size:32px;margin-bottom:16px">🧠</div>
+        <h3>Inteligente</h3>
+        <p>Uso de IA, automações e visão da operação para responder mais rápido e com mais precisão.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--purple)">
+        <div style="font-size:32px;margin-bottom:16px">🚀</div>
+        <h3>Escalável</h3>
+        <p>Crescimento com menos improviso e mais estrutura. Capacidade de atender mais leads sem perder qualidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 3: O QUE É E O QUE NÃO É -->
+<section class="slide">
+  <span class="slide-num">03 / X</span>
+  <div class="reveal">
+    <div class="grid2" style="gap:40px;align-items:start">
+      
+      <!-- O QUE NÃO É -->
+      <div>
+        <span class="badge" style="border-color:rgba(239,68,68,.3);color:#ef4444;background:rgba(239,68,68,.1)">O que não somos</span>
+        <h2 style="margin-top:16px;font-size:32px">O que o WhaSense não é</h2>
+        
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px" class="stagger">
+          <div style="padding:16px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:12px;display:flex;align-items:center;gap:12px">
+            <span style="color:#ef4444;font-size:20px">✕</span>
+            <span style="color:var(--text2);font-weight:500">Não é só uma ferramenta para responder mensagens</span>
+          </div>
+          <div style="padding:16px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:12px;display:flex;align-items:center;gap:12px">
+            <span style="color:#ef4444;font-size:20px">✕</span>
+            <span style="color:var(--text2);font-weight:500">Não é só um chatbot</span>
+          </div>
+          <div style="padding:16px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:12px;display:flex;align-items:center;gap:12px">
+            <span style="color:#ef4444;font-size:20px">✕</span>
+            <span style="color:var(--text2);font-weight:500">Não é só um CRM</span>
+          </div>
+          <div style="padding:16px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.2);border-radius:12px;display:flex;align-items:center;gap:12px">
+            <span style="color:#ef4444;font-size:20px">✕</span>
+            <span style="color:var(--text2);font-weight:500">Não é só automação</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- O QUE É -->
+      <div>
+        <span class="badge gr">O que somos</span>
+        <h2 style="margin-top:16px;font-size:32px">O que o WhaSense é</h2>
+        
+        <div style="margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(37,99,235,.05));border:1px solid rgba(16,185,129,.3);border-radius:16px" class="stagger">
+          <p style="font-size:18px;line-height:1.6;color:#fff;font-weight:500;margin-bottom:20px">
+            “O WhaSense é uma plataforma que transforma o WhatsApp da empresa em uma operação de vendas mais organizada, inteligente e escalável.”
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="badge" style="background:var(--bg3);border-color:var(--border);color:var(--text)">Atendimento</span>
+            <span class="badge" style="background:var(--bg3);border-color:var(--border);color:var(--text)">CRM</span>
+            <span class="badge" style="background:var(--bg3);border-color:var(--border);color:var(--text)">IA</span>
+            <span class="badge" style="background:var(--bg3);border-color:var(--border);color:var(--text)">Automações</span>
+            <span class="badge" style="background:var(--bg3);border-color:var(--border);color:var(--text)">Gestão Comercial</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 4: VERSÃO CURTA E MÉDIA -->
+<section class="slide">
+  <span class="slide-num">04 / X</span>
+  <div class="reveal">
+    <span class="badge bl">Discurso</span>
+    <h2 style="margin-top:16px">Versões Oficiais</h2>
+    
+    <div class="grid2 stagger" style="margin-top:32px;gap:32px;align-items:start">
+      
+      <!-- CURTA -->
+      <div class="card" style="border-top:3px solid var(--blue)">
+        <h3 style="color:var(--blue);margin-bottom:16px;font-size:22px">Versão curta oficial</h3>
+        <div style="padding:20px;background:rgba(37,99,235,.05);border-radius:12px;border:1px solid rgba(37,99,235,.2);margin-bottom:20px">
+          <p style="font-size:20px;color:#fff;font-weight:600;line-height:1.4">“Seu WhatsApp virando máquina de vendas.”</p>
+        </div>
+        <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:1px;margin-bottom:12px">ONDE USAR:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span class="segment-tag">Introdução rápida</span>
+          <span class="segment-tag">Bio do Instagram</span>
+          <span class="segment-tag">Primeiro contato</span>
+          <span class="segment-tag">Materiais curtos</span>
+          <span class="segment-tag">Explicação objetiva</span>
+        </div>
+      </div>
+
+      <!-- MÉDIA -->
+      <div class="card" style="border-top:3px solid var(--green)">
+        <h3 style="color:var(--green);margin-bottom:16px;font-size:22px">Versão média oficial</h3>
+        <div style="padding:20px;background:rgba(16,185,129,.05);border-radius:12px;border:1px solid rgba(16,185,129,.2);margin-bottom:20px">
+          <p style="font-size:16px;color:#fff;line-height:1.6">
+            “O WhaSense foi criado para empresas que querem parar de atender no improviso pelo WhatsApp. Ele reúne atendimento, CRM, IA, automações e gestão comercial em um só lugar, ajudando a vender com mais processo, controle e escala.”
+          </p>
+        </div>
+        <div style="font-size:11px;color:var(--text3);font-weight:700;letter-spacing:1px;margin-bottom:12px">ELEMENTOS PRESENTES:</div>
+        <div style="display:flex;gap:16px">
+          <div style="flex:1"><strong style="color:var(--green);font-size:13px">Dor:</strong><br><span style="font-size:12px;color:var(--text2)">Atender no improviso</span></div>
+          <div style="flex:1"><strong style="color:var(--green);font-size:13px">Solução:</strong><br><span style="font-size:12px;color:var(--text2)">Plataforma all-in-one</span></div>
+          <div style="flex:1"><strong style="color:var(--green);font-size:13px">Benefício:</strong><br><span style="font-size:12px;color:var(--text2)">Processo e escala</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 5: VERSÃO COMPLETA -->
+<section class="slide">
+  <span class="slide-num">05 / X</span>
+  <div class="reveal">
+    <span class="badge" style="border-color:rgba(139,92,246,.3);color:var(--purple);background:rgba(139,92,246,.08)">Discurso Completo</span>
+    <h2 style="margin-top:16px">Versão completa oficial</h2>
+    
+    <div class="card stagger" style="margin-top:32px;border:1px solid rgba(139,92,246,.3);background:linear-gradient(135deg,rgba(139,92,246,.05),var(--bg3));padding:40px">
+      <p style="font-size:22px;color:#fff;line-height:1.6;font-weight:300">
+        “O WhaSense foi criado para empresas que já vendem pelo WhatsApp, mas <strong style="color:var(--purple);font-weight:600">sofrem com desorganização, demora no atendimento, leads perdidos e falta de processo comercial</strong>. A plataforma <strong style="color:#fff;font-weight:600">reúne atendimento, CRM, IA, automações, controle da equipe e visão da operação em um só lugar</strong>, ajudando a empresa a responder melhor, acompanhar negociações e <strong style="color:var(--green);font-weight:600">escalar vendas com mais eficiência</strong>.”
+      </p>
+    </div>
+
+    <div class="grid4 stagger" style="margin-top:24px">
+      <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+        <div style="font-size:24px;margin-bottom:8px">🎯</div>
+        <h3 style="font-size:14px;color:var(--text)">Dor do mercado</h3>
+        <p style="font-size:12px;color:var(--text2);margin-top:4px">Vender pelo WhatsApp no caos</p>
+      </div>
+      <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+        <div style="font-size:24px;margin-bottom:8px">🚨</div>
+        <h3 style="font-size:14px;color:var(--text)">Problema operacional</h3>
+        <p style="font-size:12px;color:var(--text2);margin-top:4px">Demora, leads perdidos, sem processo</p>
+      </div>
+      <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+        <div style="font-size:24px;margin-bottom:8px">⚙️</div>
+        <h3 style="font-size:14px;color:var(--text)">Estrutura da plataforma</h3>
+        <p style="font-size:12px;color:var(--text2);margin-top:4px">CRM, IA, Automação, Controle</p>
+      </div>
+      <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px">
+        <div style="font-size:24px;margin-bottom:8px">💰</div>
+        <h3 style="font-size:14px;color:var(--text)">Ganho comercial</h3>
+        <p style="font-size:12px;color:var(--text2);margin-top:4px">Escalar vendas com eficiência</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 6: ARQUITETURA DA MENSAGEM -->
+<section class="slide">
+  <span class="slide-num">06 / X</span>
+  <div class="reveal">
+    <span class="badge bl">Framework</span>
+    <h2 style="margin-top:16px">Arquitetura oficial da mensagem</h2>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:16px">A forma como o cérebro do cliente absorve o WhaSense.</p>
+    
+    <div class="pyramid stagger">
+      <div class="pyramid-layer l1">
+        <span style="opacity:0.7;font-size:12px;margin-right:12px;text-transform:uppercase">Camada 1 — Impacto</span>
+        “Seu WhatsApp virando máquina de vendas.”
+      </div>
+      <div class="pyramid-layer l2">
+        <span style="opacity:0.7;font-size:11px;margin-right:12px;text-transform:uppercase">Camada 2 — Posicionamento</span>
+        “Operação de vendas organizada, inteligente e escalável.”
+      </div>
+      <div class="pyramid-layer l3">
+        <span style="opacity:0.7;font-size:11px;margin-right:12px;text-transform:uppercase">Camada 3</span>
+        Explicação curta (Pitch de elevador)
+      </div>
+      <div class="pyramid-layer l4">
+        <span style="opacity:0.7;font-size:10px;margin-right:12px;text-transform:uppercase">Camada 4</span>
+        Explicação média (Dor + Solução)
+      </div>
+      <div class="pyramid-layer l5">
+        <span style="opacity:0.7;font-size:10px;margin-right:12px;text-transform:uppercase">Camada 5</span>
+        Explicação completa (Estrutura total)
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 7: COMO EXPLICAR E PALAVRAS-CHAVE -->
+<section class="slide">
+  <span class="slide-num">07 / X</span>
+  <div class="reveal">
+    <div class="grid2" style="gap:40px;align-items:start">
+      
+      <!-- DIRETRIZES -->
+      <div>
+        <span class="badge gr">Diretrizes</span>
+        <h2 style="margin-top:16px;font-size:32px">Como o produto deve ser explicado</h2>
+        
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px" class="stagger">
+          <div class="list-item"><strong style="color:var(--green)">✓</strong> Falar de operação, não só de atendimento</div>
+          <div class="list-item"><strong style="color:var(--green)">✓</strong> Falar de vendas, não só de mensagens</div>
+          <div class="list-item"><strong style="color:var(--green)">✓</strong> Falar de processo, não só de ferramenta</div>
+          <div class="list-item"><strong style="color:var(--green)">✓</strong> Falar de controle, inteligência e escala</div>
+          <div class="list-item"><strong style="color:#ef4444">✕</strong> Evitar linguagem técnica demais</div>
+          <div class="list-item"><strong style="color:#ef4444">✕</strong> Evitar reduzir o WhaSense a só IA ou só CRM</div>
+        </div>
+      </div>
+
+      <!-- PALAVRAS CHAVE -->
+      <div>
+        <span class="badge bl">Vocabulário</span>
+        <h2 style="margin-top:16px;font-size:32px">Palavras-chave da marca</h2>
+        
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px" class="stagger">
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--blue);border-color:var(--blue)">Operação Comercial</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--green);border-color:var(--green)">Vendas</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">WhatsApp</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Organização</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Inteligência</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Escala</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Controle</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Processo</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Atendimento</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">CRM</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">Automação</span>
+          <span class="badge" style="padding:12px 20px;font-size:14px;background:var(--bg2);color:var(--text);border-color:var(--border)">IA</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 8: TOM DE VOZ E O QUE DEVE FICAR ÓBVIO -->
+<section class="slide">
+  <span class="slide-num">08 / X</span>
+  <div class="reveal">
+    <div class="grid2" style="gap:40px;align-items:start">
+      
+      <!-- TOM DE VOZ -->
+      <div>
+        <span class="badge" style="border-color:rgba(245,158,11,.3);color:#f59e0b;background:rgba(245,158,11,.08)">Identidade</span>
+        <h2 style="margin-top:16px;font-size:32px">Tom de voz da marca</h2>
+        
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:24px" class="stagger">
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Profissional</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Claro</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Inteligente</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Direto</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Premium</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Comercial</span>
+          <span class="segment-tag" style="border-color:var(--border);background:var(--bg2)">Confiável</span>
+        </div>
+        
+        <div style="margin-top:24px;padding:16px;background:rgba(239,68,68,.05);border-radius:12px;border:1px solid rgba(239,68,68,.2)">
+          <div style="font-size:13px;color:#ef4444;font-weight:600;margin-bottom:8px">O QUE EVITAR:</div>
+          <p style="font-size:13px;color:var(--text2);margin-bottom:4px">- Sem exagero técnico</p>
+          <p style="font-size:13px;color:var(--text2);margin-bottom:4px">- Sem parecer ferramenta barata</p>
+          <p style="font-size:13px;color:var(--text2)">- Sem parecer só chatbot</p>
+        </div>
+
+        <div style="margin-top:24px;padding:16px;background:rgba(245,158,11,.1);border-left:4px solid #f59e0b;border-radius:0 8px 8px 0">
+          <p style="font-size:14px;color:#fff;font-weight:500;font-style:italic">“O WhaSense deve soar como uma plataforma séria de operação comercial.”</p>
+        </div>
+      </div>
+
+      <!-- O QUE DEVE FICAR ÓBVIO -->
+      <div>
+        <span class="badge bl">Clareza</span>
+        <h2 style="margin-top:16px;font-size:32px">O que precisa ficar óbvio para quem lê</h2>
+        
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:24px" class="stagger">
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">❓</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">O que o WhaSense é</div>
+          </div>
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">🎯</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">Para quem ele serve</div>
+          </div>
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">🩹</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">Qual dor ele resolve</div>
+          </div>
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">📈</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">Como ele ajuda a vender melhor</div>
+          </div>
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">⭐</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">Por que ele é diferente</div>
+          </div>
+          <div style="padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;gap:16px">
+            <div style="font-size:24px">💎</div>
+            <div style="font-size:15px;color:var(--text);font-weight:500">Por que ele tem valor</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 9: USOS PRÁTICOS -->
+<section class="slide">
+  <span class="slide-num">09 / X</span>
+  <div class="reveal">
+    <span class="badge gr">Aplicação</span>
+    <h2 style="margin-top:16px">Como aplicar esse posicionamento</h2>
+    <p style="font-size:14px;color:var(--text3);margin-bottom:32px">Onde essa base estratégica deve ser usada no dia a dia.</p>
+    
+    <div class="grid5 stagger">
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">🌐</div>
+        <h3 style="font-size:14px">Site / LP</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">📱</div>
+        <h3 style="font-size:14px">Instagram / Bio</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">📊</div>
+        <h3 style="font-size:14px">Apresentação</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">📄</div>
+        <h3 style="font-size:14px">Proposta</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">🗣</div>
+        <h3 style="font-size:14px">Demo</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">💬</div>
+        <h3 style="font-size:14px">Abordagem</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">🎙</div>
+        <h3 style="font-size:14px">Discurso</h3>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:28px;margin-bottom:12px">🤝</div>
+        <h3 style="font-size:14px">Parcerias</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POS: SLIDE 10: FECHAMENTO / RESUMO -->
+<section class="slide closer">
+  <span class="slide-num">10 / X</span>
+  <div class="reveal" style="text-align:center">
+    <span class="badge bl" style="margin-bottom:24px">Resumo Oficial de Posicionamento</span>
+    
+    <h1 style="font-size:clamp(32px,4vw,56px);margin-bottom:24px;line-height:1.2;max-width:1000px;margin-left:auto;margin-right:auto">
+      Transformamos o WhatsApp da sua empresa em uma operação de vendas organizada, inteligente e escalável.
+    </h1>
+    
+    <div style="margin:40px auto;padding:24px 40px;background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(37,99,235,.1));border:1px solid rgba(16,185,129,.3);border-radius:100px;display:inline-block">
+      <p style="font-size:clamp(20px,2.5vw,32px);color:#fff;font-weight:600;margin:0">
+        “Seu WhatsApp virando máquina de vendas.”
+      </p>
+    </div>
+
+    <p style="margin-top:24px;font-size:16px;color:var(--text2);max-width:600px;margin-left:auto;margin-right:auto;font-style:italic">
+      “Essa é a base oficial para comunicar o WhaSense com clareza, consistência e valor.”
+    </p>
+  </div>
+</section>
+
+</div>
 
 <script>
-// Create nav dots
-const slides = document.querySelectorAll('.slide');
-const navDots = document.getElementById('navDots');
-slides.forEach((s, i) => {
-  const dot = document.createElement('button');
-  dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
-  dot.onclick = () => s.scrollIntoView({ behavior: 'smooth' });
-  dot.title = 'Slide ' + (i + 1);
-  navDots.appendChild(dot);
-});
+// Tab Switching
+function switchTab(tabId) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+  
+  document.querySelectorAll('.deck').forEach(d => {
+    d.style.display = 'none';
+    d.classList.remove('active');
+  });
+  
+  const activeDeck = document.getElementById(tabId + '-deck');
+  activeDeck.style.display = 'block';
+  activeDeck.classList.add('active');
+  
+  // Reset animations
+  activeDeck.querySelectorAll('.reveal.visible, .stagger.visible').forEach(el => el.classList.remove('visible'));
+  
+  updateNavDots(activeDeck);
+  updateSlideNumbers();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
 
-// Scroll reveal
-const revealEls = document.querySelectorAll('.reveal, .stagger');
+function updateSlideNumbers() {
+  document.querySelectorAll('.deck').forEach(deck => {
+    const slides = deck.querySelectorAll('.slide');
+    slides.forEach((s, i) => {
+      const numSpan = s.querySelector('.slide-num');
+      if (numSpan) {
+        numSpan.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      }
+    });
+  });
+}
+
+// Observers
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -1105,20 +1554,44 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.15 });
-revealEls.forEach(el => observer.observe(el));
 
-// Active dot on scroll
-const dotObserver = new IntersectionObserver((entries) => {
+let dotObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const idx = Array.from(slides).indexOf(entry.target);
-      document.querySelectorAll('.nav-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === idx);
-      });
+      const activeDeck = document.querySelector('.deck.active');
+      const slides = Array.from(activeDeck.querySelectorAll('.slide'));
+      const idx = slides.indexOf(entry.target);
+      if (idx !== -1) {
+        document.querySelectorAll('.nav-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === idx);
+        });
+      }
     }
   });
 }, { threshold: 0.5 });
-slides.forEach(s => dotObserver.observe(s));
+
+function updateNavDots(deck) {
+  const navDots = document.getElementById('navDots');
+  navDots.innerHTML = '';
+  const slides = deck.querySelectorAll('.slide');
+  slides.forEach((s, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => s.scrollIntoView({ behavior: 'smooth' });
+    dot.title = 'Slide ' + (i + 1);
+    navDots.appendChild(dot);
+  });
+  
+  dotObserver.disconnect();
+  slides.forEach(s => dotObserver.observe(s));
+  
+  deck.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+}
+
+// Initial Setup
+updateSlideNumbers();
+const initialDeck = document.querySelector('.deck.active');
+updateNavDots(initialDeck);
 
 // Bar animation
 const barObserver = new IntersectionObserver((entries) => {
